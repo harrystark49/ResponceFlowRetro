@@ -2,18 +2,22 @@ package com.example.responceflowretro
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Named
 
-class ResViewModel:ViewModel() {
+@HiltViewModel
+class ResViewModel @Inject constructor(@Named("retro")s:retroInterface):ViewModel() {
 
-    var repo=Repo(AppConfig.ApiService())
+    var repo=Repo(s)
 
     val responce=MutableStateFlow(
         Responce(Status.LOADING,res(),"")
     )
 
-    val responce1=responce.asStateFlow().stateIn(
+    val responce1=responce.stateIn(
         initialValue = Responce(Status.LOADING,res(),""),
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(4000)
