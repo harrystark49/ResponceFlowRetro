@@ -23,10 +23,6 @@ class ResViewModel @Inject constructor(@Named("retro")s:retroInterface):ViewMode
         started = SharingStarted.WhileSubscribed(4000)
     )
 
-    init {
-        getdata(1)
-    }
-
      fun getdata(i: Int) {
          viewModelScope.launch {
              responce.value=Responce.loading()
