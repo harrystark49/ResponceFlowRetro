@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         var s=ResViewModel()
         s.getdata(5)
         lifecycleScope.launchWhenCreated {
-            s.responce.collect {
+            s.responce1.collect {
                 when(it.status){
                     Status.LOADING->{
                         Log.d("dataaa","loading")
