@@ -1,6 +1,6 @@
 package com.example.responceflowretro
 
-data class Responce<out T>(val status: Status,val data:T?,val msg:String?){
+    data class Responce<out T>(val status: Status,val data:T?,val msg:String?){
     companion object{
         fun <T>success(data:T?):Responce<T>{
             return Responce(Status.SUCCESS,data,null)

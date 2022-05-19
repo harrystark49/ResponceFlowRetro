@@ -33,6 +33,7 @@ class ResViewModel @Inject constructor(@Named("retro")s:retroInterface):ViewMode
                  .collect {da->
                      responce.value=Responce.success(da.data)
                  }
+
          }
 
     }

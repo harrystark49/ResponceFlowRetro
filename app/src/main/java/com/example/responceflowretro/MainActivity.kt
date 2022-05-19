@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 Status.ERROR -> {
                     Log.d("dataaa", "${it.msg}")
-
                 }
             }
         }
@@ -48,5 +47,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
